@@ -11,7 +11,7 @@ class Laboratorio extends Model
         'nombre',
         'direccion',
         'telefono',
-        'email'
+        'ciudad_id'
     ];
 
     // Relación con medicamentos

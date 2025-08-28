@@ -8,21 +8,20 @@ class ExamenMedico extends Model
 {
     protected $table = 'examenes_Medico';
     protected $fillable = [
-        'laboratorio_id',
         'nombre',
         'descripcion',
-        'precio'
+        'tipo'
     ];
 
     // Relación con laboratorio
     public function laboratorio()
     {
-        return $this->belongsTo(Laboratorios::class, 'laboratorio_id');
+        return $this->belongsTo(Laboratorio::class, 'laboratorio_id');
     }
 
     // Relación con órdenes de examen
     public function ordenesExamenes()
     {
-        return $this->hasMany(OrdenesExamenes::class, 'examen_medico_id');
+        return $this->hasMany(OrdenExamen::class, 'examen_medico_id');
     }
 }

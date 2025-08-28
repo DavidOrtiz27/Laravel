@@ -9,8 +9,7 @@ class HistoriaClinica extends Model
     protected $table = 'historias_clinicas';
     protected $fillable = [
         'paciente_id',
-        'antecedentes',
-        'alergias',
+        'fecha_creacion',
         'observaciones'
     ];
 

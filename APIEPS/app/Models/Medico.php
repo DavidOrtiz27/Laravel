@@ -19,30 +19,30 @@ class Medico extends Model
     // Relación con especialidad
     public function especialidad()
     {
-        return $this->belongsTo(Especialidades::class, 'especialidad_id');
+        return $this->belongsTo(Especialidad::class, 'especialidad_id');
     }
 
     // Relación con ciudad
     public function ciudad()
     {
-        return $this->belongsTo(Ciudades::class, 'ciudad_id');
+        return $this->belongsTo(Ciudad::class, 'ciudad_id');
     }
 
     // Relación con horarios
     public function horarios()
     {
-        return $this->hasMany(Horarios::class, 'medico_id');
+        return $this->hasMany(Horario::class, 'medico_id');
     }
 
     // Relación con citas
     public function citas()
     {
-        return $this->hasMany(Citas::class, 'medico_id');
+        return $this->hasMany(Cita::class, 'medico_id');
     }
 
     // Relación con consultas médicas
     public function consultasMedicas()
     {
-        return $this->hasMany(ConsultasMedicas::class, 'medico_id');
+        return $this->hasMany(ConsultaMedica::class, 'medico_id');
     }
 }

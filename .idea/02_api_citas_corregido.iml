@@ -121,6 +121,8 @@
       <excludeFolder url="file://$MODULE_DIR$/APIEPS/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/APIEPS/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/APIEPS/vendor/laravel/sanctum" />
+      <excludeFolder url="file://$MODULE_DIR$/APIEPS/storage/pail" />
+      <excludeFolder url="file://$MODULE_DIR$/APIEPS/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/APIEPS/vendor/_laravel_idea" />
     </content>
     <orderEntry type="inheritedJdk" />

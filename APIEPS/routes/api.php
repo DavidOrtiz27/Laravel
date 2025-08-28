@@ -20,6 +20,15 @@ use App\Http\Controllers\PagoController;
 use App\Http\Controllers\RecetaMedicaController;
 use App\Http\Controllers\ReportesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
+Route::post('registrar',[AuthController::class,'registrar']);
+Route::post('login',[AuthController::class,'login']);
+
+Route::middleware('auth:sanctum')->group(function (){
+    Route::post('especialidades',[EspecialidadController::class,'store']);
+    Route::post('logout',[AuthController::class,'logout']);
+});
 
 
 
@@ -28,7 +37,6 @@ use Illuminate\Support\Facades\Route;
 // ---------------------------
 Route::get('especialidades',[EspecialidadController::class,'index']);
 Route::get('especialidades/{id}',[EspecialidadController::class,'show']);
-Route::post('especialidades',[EspecialidadController::class,'store']);
 Route::put('especialidades/{id}', [EspecialidadController::class, 'update']);
 Route::delete('especialidades/{id}',[EspecialidadController::class,'destroy']);
 
