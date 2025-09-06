@@ -8,14 +8,48 @@ use Illuminate\Support\Facades\Validator;
 
 class ExamenMedicoController extends Controller
 {
-    // Listar todos los exámenes médicos
+    /**
+     * Obtiene una lista de todos los exámenes médicos.
+     *
+     * @group Examen Medico
+     * @response 200 scenario="Success" {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "laboratorio_id": 1,
+     *       "nombre": "Examen de sangre",
+     *       "descripcion": "Análisis completo de sangre",
+     *       "precio": 100.00
+     *     }
+     *   ]
+     * }
+     */
     public function index()
     {
         $examenes = ExamenMedico::all();
         return response()->json($examenes);
     }
 
-    // Crear nuevo examen médico
+    /**
+     * Crea un nuevo examen médico.
+     *
+     * @group Examen Medico
+     * @bodyParam laboratorio_id integer required ID del laboratorio. Example: 1
+     * @bodyParam nombre string required Nombre del examen médico. Example: Examen de sangre
+     * @bodyParam descripcion string opcional Descripción del examen médico. Example: Análisis completo de sangre
+     * @bodyParam precio numeric required Precio del examen médico. Example: 100.00
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "laboratorio_id": 1,
+     *   "nombre": "Examen de sangre",
+     *   "descripcion": "Análisis completo de sangre",
+     *   "precio": 100.00
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -33,14 +67,53 @@ class ExamenMedicoController extends Controller
         return response()->json($examen);
     }
 
-    // Listar examen médico por ID
+    /**
+     * Obtiene un examen médico específico por su ID.
+     *
+     * @group Examen Medico
+     * @urlParam id string required ID del examen médico. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "laboratorio_id": 1,
+     *   "nombre": "Examen de sangre",
+     *   "descripcion": "Análisis completo de sangre",
+     *   "precio": 100.00
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Examen médico no encontrado"
+     * }
+     */
     public function show(string $id)
     {
         $examen = ExamenMedico::findOrFail($id);
         return response()->json($examen);
     }
 
-    // Actualizar examen médico
+    /**
+     * Actualiza un examen médico existente.
+     *
+     * @group Examen Medico
+     * @urlParam id string required ID del examen médico. Example: 1
+     * @bodyParam laboratorio_id integer opcional ID del laboratorio. Example: 1
+     * @bodyParam nombre string opcional Nombre del examen médico. Example: Examen de sangre
+     * @bodyParam descripcion string opcional Descripción del examen médico. Example: Análisis completo de sangre
+     * @bodyParam precio numeric opcional Precio del examen médico. Example: 100.00
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "laboratorio_id": 1,
+     *   "nombre": "Examen de sangre",
+     *   "descripcion": "Análisis completo de sangre",
+     *   "precio": 100.00
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Examen médico no encontrado"
+     * }
+     */
     public function update(Request $request, string $id)
     {
         $examen = ExamenMedico::findOrFail($id);
@@ -60,7 +133,19 @@ class ExamenMedicoController extends Controller
         return response()->json($examen);
     }
 
-    // Eliminar examen médico
+    /**
+     * Elimina un examen médico existente.
+     *
+     * @group Examen Medico
+     * @urlParam id string required ID del examen médico. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "message": "Examen médico eliminado"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Examen médico no encontrado"
+     * }
+     */
     public function destroy(string $id)
     {
         $examen = ExamenMedico::findOrFail($id);

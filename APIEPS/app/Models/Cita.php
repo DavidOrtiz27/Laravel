@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Cita extends Model
 {
     protected $table = 'citas';
-    protected $fillable = ['paciente_id','especialidad_id','medico_id','consultorio_id','fecha','hora','estado'];
+    protected $fillable = [
+        'paciente_id',
+        'especialidad_id',
+        'medico_id',
+        'consultorio_id',
+        'fecha',
+        'hora',
+        'estado'];
 
     public function paciente()
     {

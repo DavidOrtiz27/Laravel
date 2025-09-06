@@ -1,0 +1,109 @@
+name: Ciudad
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/ciudades
+    metadata:
+      groupName: Ciudad
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene una lista de todas las ciudades.'
+      description: ''
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "nombre": "Ciudad Example"
+              }
+            ]
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/ciudades/{id}'
+    metadata:
+      groupName: Ciudad
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene una ciudad específica por su ID.'
+      description: ''
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la ciudad.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "nombre": "Ciudad Example"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Ciudad no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

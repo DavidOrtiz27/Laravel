@@ -1,0 +1,410 @@
+name: 'Historia Clinica'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/historias-clinicas
+    metadata:
+      groupName: 'Historia Clinica'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene una lista de todas las historias clínicas.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "paciente_id": 1,
+                "antecedentes": "Historial de hipertensión",
+                "alergias": "Penicilina",
+                "observaciones": "Paciente estable"
+              }
+            ]
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/historias-clinicas
+    metadata:
+      groupName: 'Historia Clinica'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Crea una nueva historia clínica.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paciente_id:
+        name: paciente_id
+        description: 'ID del paciente.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      antecedentes:
+        name: antecedentes
+        description: 'opcional Antecedentes médicos del paciente.'
+        required: false
+        example: 'Historial de hipertensión'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      alergias:
+        name: alergias
+        description: 'opcional Alergias del paciente.'
+        required: false
+        example: Penicilina
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      observaciones:
+        name: observaciones
+        description: 'opcional Observaciones generales.'
+        required: false
+        example: 'Paciente estable'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      paciente_id: 1
+      antecedentes: 'Historial de hipertensión'
+      alergias: Penicilina
+      observaciones: 'Paciente estable'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "antecedentes": "Historial de hipertensión",
+            "alergias": "Penicilina",
+            "observaciones": "Paciente estable"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/historias-clinicas/{id}'
+    metadata:
+      groupName: 'Historia Clinica'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene una historia clínica específica por su ID.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la historia clínica.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "antecedentes": "Historial de hipertensión",
+            "alergias": "Penicilina",
+            "observaciones": "Paciente estable"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Historia clínica no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/historias-clinicas/{id}'
+    metadata:
+      groupName: 'Historia Clinica'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Actualiza una historia clínica existente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la historia clínica.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paciente_id:
+        name: paciente_id
+        description: 'opcional ID del paciente.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      antecedentes:
+        name: antecedentes
+        description: 'opcional Antecedentes médicos del paciente.'
+        required: false
+        example: 'Historial de hipertensión'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      alergias:
+        name: alergias
+        description: 'opcional Alergias del paciente.'
+        required: false
+        example: Penicilina
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      observaciones:
+        name: observaciones
+        description: 'opcional Observaciones generales.'
+        required: false
+        example: 'Paciente estable'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      paciente_id: 1
+      antecedentes: 'Historial de hipertensión'
+      alergias: Penicilina
+      observaciones: 'Paciente estable'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "antecedentes": "Historial de hipertensión",
+            "alergias": "Penicilina",
+            "observaciones": "Paciente estable"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Historia clínica no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/historias-clinicas/{id}'
+    metadata:
+      groupName: 'Historia Clinica'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Elimina una historia clínica existente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la historia clínica.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Historia clínica eliminada"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Historia clínica no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []

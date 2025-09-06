@@ -1,0 +1,410 @@
+name: Horario
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/horarios
+    metadata:
+      groupName: Horario
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene una lista de todos los horarios.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "medico_id": 1,
+                "dia_semana": "Lunes",
+                "hora_inicio": "08:00",
+                "hora_fin": "17:00"
+              }
+            ]
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/horarios
+    metadata:
+      groupName: Horario
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Crea un nuevo horario.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      medico_id:
+        name: medico_id
+        description: 'ID del médico.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      dia_semana:
+        name: dia_semana
+        description: 'Día de la semana.'
+        required: true
+        example: Lunes
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      hora_inicio:
+        name: hora_inicio
+        description: 'Hora de inicio en formato HH:mm.'
+        required: true
+        example: '08:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      hora_fin:
+        name: hora_fin
+        description: 'Hora de fin en formato HH:mm.'
+        required: true
+        example: '17:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      medico_id: 1
+      dia_semana: Lunes
+      hora_inicio: '08:00'
+      hora_fin: '17:00'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "medico_id": 1,
+            "dia_semana": "Lunes",
+            "hora_inicio": "08:00",
+            "hora_fin": "17:00"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/horarios/{id}'
+    metadata:
+      groupName: Horario
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene un horario específico por su ID.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID del horario.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "medico_id": 1,
+            "dia_semana": "Lunes",
+            "hora_inicio": "08:00",
+            "hora_fin": "17:00"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Horario no encontrado"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/horarios/{id}'
+    metadata:
+      groupName: Horario
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Actualiza un horario existente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID del horario.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      medico_id:
+        name: medico_id
+        description: 'opcional ID del médico.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      dia_semana:
+        name: dia_semana
+        description: 'opcional Día de la semana.'
+        required: false
+        example: Lunes
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      hora_inicio:
+        name: hora_inicio
+        description: 'opcional Hora de inicio en formato HH:mm.'
+        required: false
+        example: '08:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      hora_fin:
+        name: hora_fin
+        description: 'opcional Hora de fin en formato HH:mm.'
+        required: false
+        example: '17:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      medico_id: 1
+      dia_semana: Lunes
+      hora_inicio: '08:00'
+      hora_fin: '17:00'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "medico_id": 1,
+            "dia_semana": "Lunes",
+            "hora_inicio": "08:00",
+            "hora_fin": "17:00"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Horario no encontrado"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/horarios/{id}'
+    metadata:
+      groupName: Horario
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Elimina un horario existente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID del horario.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Horario eliminado"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Horario no encontrado"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []

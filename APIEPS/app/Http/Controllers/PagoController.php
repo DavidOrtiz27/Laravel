@@ -8,14 +8,48 @@ use Illuminate\Support\Facades\Validator;
 
 class PagoController extends Controller
 {
-    // Listar todos los Pago
+    /**
+     * Obtiene una lista de todos los pagos.
+     *
+     * @group Pago
+     * @response 200 scenario="Success" {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "factura_id": 1,
+     *       "fecha_pago": "2025-01-01",
+     *       "monto": 100.00,
+     *       "metodo_pago": "tarjeta"
+     *     }
+     *   ]
+     * }
+     */
     public function index()
     {
         $Pago = Pago::all();
         return response()->json($Pago);
     }
 
-    // Crear nuevo pago
+    /**
+     * Crea un nuevo pago.
+     *
+     * @group Pago
+     * @bodyParam factura_id integer required ID de la factura. Example: 1
+     * @bodyParam fecha_pago date required Fecha del pago. Example: 2025-01-01
+     * @bodyParam monto numeric required Monto del pago. Example: 100.00
+     * @bodyParam metodo_pago string required Método de pago utilizado. Example: tarjeta
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "factura_id": 1,
+     *   "fecha_pago": "2025-01-01",
+     *   "monto": 100.00,
+     *   "metodo_pago": "tarjeta"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -33,14 +67,53 @@ class PagoController extends Controller
         return response()->json($pago);
     }
 
-    // Listar pago por ID
+    /**
+     * Obtiene un pago específico por su ID.
+     *
+     * @group Pago
+     * @urlParam id string required ID del pago. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "factura_id": 1,
+     *   "fecha_pago": "2025-01-01",
+     *   "monto": 100.00,
+     *   "metodo_pago": "tarjeta"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Pago no encontrado"
+     * }
+     */
     public function show(string $id)
     {
         $pago = Pago::findOrFail($id);
         return response()->json($pago);
     }
 
-    // Actualizar pago
+    /**
+     * Actualiza un pago existente.
+     *
+     * @group Pago
+     * @urlParam id string required ID del pago. Example: 1
+     * @bodyParam factura_id integer opcional ID de la factura. Example: 1
+     * @bodyParam fecha_pago date opcional Fecha del pago. Example: 2025-01-01
+     * @bodyParam monto numeric opcional Monto del pago. Example: 100.00
+     * @bodyParam metodo_pago string opcional Método de pago utilizado. Example: tarjeta
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "factura_id": 1,
+     *   "fecha_pago": "2025-01-01",
+     *   "monto": 100.00,
+     *   "metodo_pago": "tarjeta"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Pago no encontrado"
+     * }
+     */
     public function update(Request $request, string $id)
     {
         $pago = Pago::findOrFail($id);
@@ -60,7 +133,19 @@ class PagoController extends Controller
         return response()->json($pago);
     }
 
-    // Eliminar pago
+    /**
+     * Elimina un pago existente.
+     *
+     * @group Pago
+     * @urlParam id string required ID del pago. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "message": "Pago eliminado"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Pago no encontrado"
+     * }
+     */
     public function destroy(string $id)
     {
         $pago = Pago::findOrFail($id);

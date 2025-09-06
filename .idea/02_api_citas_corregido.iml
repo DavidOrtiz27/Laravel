@@ -124,6 +124,8 @@
       <excludeFolder url="file://$MODULE_DIR$/APIEPS/storage/pail" />
       <excludeFolder url="file://$MODULE_DIR$/APIEPS/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/APIEPS/vendor/_laravel_idea" />
+      <excludeFolder url="file://$MODULE_DIR$/APIEPS/storage/app" />
+      <excludeFolder url="file://$MODULE_DIR$/APIEPS/storage/framework" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

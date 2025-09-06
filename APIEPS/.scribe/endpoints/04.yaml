@@ -1,0 +1,436 @@
+name: Paciente
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/pacientes
+    metadata:
+      groupName: Paciente
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene una lista de todos los pacientes.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "nombre": "John Doe",
+                "documento": "12345678",
+                "telefono": "1234567890",
+                "email": "john@example.com",
+                "ciudad_id": 1
+              }
+            ]
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/pacientes/{id}'
+    metadata:
+      groupName: Paciente
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene un paciente específico por su ID.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID del paciente.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "nombre": "John Doe",
+            "documento": "12345678",
+            "telefono": "1234567890",
+            "email": "john@example.com",
+            "ciudad_id": 1
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Paciente no encontrado"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/pacientes
+    metadata:
+      groupName: Paciente
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Crea un nuevo paciente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      nombre:
+        name: nombre
+        description: 'Nombre del paciente.'
+        required: true
+        example: 'John Doe'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      documento:
+        name: documento
+        description: 'Número de documento del paciente.'
+        required: true
+        example: '12345678'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      telefono:
+        name: telefono
+        description: 'opcional Número de teléfono del paciente.'
+        required: false
+        example: '1234567890'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      email:
+        name: email
+        description: 'opcional Correo electrónico del paciente.'
+        required: false
+        example: john@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      ciudad_id:
+        name: ciudad_id
+        description: 'ID de la ciudad del paciente.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      nombre: 'John Doe'
+      documento: '12345678'
+      telefono: '1234567890'
+      email: john@example.com
+      ciudad_id: 1
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "nombre": "John Doe",
+            "documento": "12345678",
+            "telefono": "1234567890",
+            "email": "john@example.com",
+            "ciudad_id": 1
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/pacientes/{id}'
+    metadata:
+      groupName: Paciente
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Actualiza un paciente existente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID del paciente.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      nombre:
+        name: nombre
+        description: 'opcional Nombre del paciente.'
+        required: false
+        example: 'John Doe'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      documento:
+        name: documento
+        description: 'opcional Número de documento del paciente.'
+        required: false
+        example: '12345678'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      telefono:
+        name: telefono
+        description: 'opcional Número de teléfono del paciente.'
+        required: false
+        example: '1234567890'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      email:
+        name: email
+        description: 'opcional Correo electrónico del paciente.'
+        required: false
+        example: john@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      ciudad_id:
+        name: ciudad_id
+        description: 'opcional ID de la ciudad del paciente.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      nombre: 'John Doe'
+      documento: '12345678'
+      telefono: '1234567890'
+      email: john@example.com
+      ciudad_id: 1
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "nombre": "John Doe",
+            "documento": "12345678",
+            "telefono": "1234567890",
+            "email": "john@example.com",
+            "ciudad_id": 1
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Paciente no encontrado"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/pacientes/{id}'
+    metadata:
+      groupName: Paciente
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Elimina un paciente existente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID del paciente.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Paciente eliminado"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Paciente no encontrado"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []

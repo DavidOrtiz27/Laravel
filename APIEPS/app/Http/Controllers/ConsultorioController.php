@@ -8,14 +8,48 @@ use Illuminate\Support\Facades\Validator;
 
 class ConsultorioController extends Controller
 {
-    // Listar todos los Consultorio
+    /**
+     * Obtiene una lista de todos los consultorios.
+     *
+     * @group Consultorio
+     * @response 200 scenario="Success" {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "ciudad_id": 1,
+     *       "nombre": "Consultorio Principal",
+     *       "direccion": "Calle 123",
+     *       "telefono": "1234567890"
+     *     }
+     *   ]
+     * }
+     */
     public function index()
     {
         $Consultorio = Consultorio::all();
         return response()->json($Consultorio);
     }
 
-    // Crear nuevo consultorio
+    /**
+     * Crea un nuevo consultorio.
+     *
+     * @group Consultorio
+     * @bodyParam ciudad_id integer required ID de la ciudad. Example: 1
+     * @bodyParam nombre string required Nombre del consultorio. Example: Consultorio Principal
+     * @bodyParam direccion string opcional Dirección del consultorio. Example: Calle 123
+     * @bodyParam telefono string opcional Teléfono del consultorio. Example: 1234567890
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "ciudad_id": 1,
+     *   "nombre": "Consultorio Principal",
+     *   "direccion": "Calle 123",
+     *   "telefono": "1234567890"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -33,14 +67,53 @@ class ConsultorioController extends Controller
         return response()->json($consultorio);
     }
 
-    // Listar consultorio por ID
+    /**
+     * Obtiene un consultorio específico por su ID.
+     *
+     * @group Consultorio
+     * @urlParam id string required ID del consultorio. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "ciudad_id": 1,
+     *   "nombre": "Consultorio Principal",
+     *   "direccion": "Calle 123",
+     *   "telefono": "1234567890"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Consultorio no encontrado"
+     * }
+     */
     public function show(string $id)
     {
         $consultorio = Consultorio::findOrFail($id);
         return response()->json($consultorio);
     }
 
-    // Actualizar consultorio
+    /**
+     * Actualiza un consultorio existente.
+     *
+     * @group Consultorio
+     * @urlParam id string required ID del consultorio. Example: 1
+     * @bodyParam ciudad_id integer opcional ID de la ciudad. Example: 1
+     * @bodyParam nombre string opcional Nombre del consultorio. Example: Consultorio Principal
+     * @bodyParam direccion string opcional Dirección del consultorio. Example: Calle 123
+     * @bodyParam telefono string opcional Teléfono del consultorio. Example: 1234567890
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "ciudad_id": 1,
+     *   "nombre": "Consultorio Principal",
+     *   "direccion": "Calle 123",
+     *   "telefono": "1234567890"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Consultorio no encontrado"
+     * }
+     */
     public function update(Request $request, string $id)
     {
         $consultorio = Consultorio::findOrFail($id);
@@ -60,7 +133,19 @@ class ConsultorioController extends Controller
         return response()->json($consultorio);
     }
 
-    // Eliminar consultorio
+    /**
+     * Elimina un consultorio existente.
+     *
+     * @group Consultorio
+     * @urlParam id string required ID del consultorio. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "message": "Consultorio eliminado"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Consultorio no encontrado"
+     * }
+     */
     public function destroy(string $id)
     {
         $consultorio = Consultorio::findOrFail($id);

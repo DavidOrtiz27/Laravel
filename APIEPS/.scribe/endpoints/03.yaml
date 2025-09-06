@@ -1,0 +1,487 @@
+name: Citas
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/citas
+    metadata:
+      groupName: Citas
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene una lista de todas las citas.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "paciente_id": 1,
+                "especialidad_id": 1,
+                "medico_id": 1,
+                "consultorio_id": 1,
+                "fecha": "2025-01-01",
+                "hora": "10:00:00",
+                "estado": "programada"
+              }
+            ]
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/citas/{id}'
+    metadata:
+      groupName: Citas
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtiene una cita específica por su ID.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la cita.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "especialidad_id": 1,
+            "medico_id": 1,
+            "consultorio_id": 1,
+            "fecha": "2025-01-01",
+            "hora": "10:00:00",
+            "estado": "programada"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Cita no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/citas
+    metadata:
+      groupName: Citas
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Crea una nueva cita.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paciente_id:
+        name: paciente_id
+        description: 'ID del paciente.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      especialidad_id:
+        name: especialidad_id
+        description: 'ID de la especialidad.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      medico_id:
+        name: medico_id
+        description: 'ID del médico.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      consultorio_id:
+        name: consultorio_id
+        description: 'ID del consultorio.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      fecha:
+        name: fecha
+        description: 'Fecha de la cita.'
+        required: true
+        example: '2025-01-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      hora:
+        name: hora
+        description: 'Hora de la cita.'
+        required: true
+        example: '10:00:00'
+        type: time
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      estado:
+        name: estado
+        description: 'Estado de la cita.'
+        required: true
+        example: programada
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      paciente_id: 1
+      especialidad_id: 1
+      medico_id: 1
+      consultorio_id: 1
+      fecha: '2025-01-01'
+      hora: '10:00:00'
+      estado: programada
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "especialidad_id": 1,
+            "medico_id": 1,
+            "consultorio_id": 1,
+            "fecha": "2025-01-01",
+            "hora": "10:00:00",
+            "estado": "programada"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/citas/{id}'
+    metadata:
+      groupName: Citas
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Actualiza una cita existente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la cita.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paciente_id:
+        name: paciente_id
+        description: 'ID del paciente.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      especialidad_id:
+        name: especialidad_id
+        description: 'ID de la especialidad.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      medico_id:
+        name: medico_id
+        description: 'ID del médico.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      consultorio_id:
+        name: consultorio_id
+        description: 'ID del consultorio.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      fecha:
+        name: fecha
+        description: 'opcional Fecha de la cita.'
+        required: false
+        example: '2025-01-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      hora:
+        name: hora
+        description: 'opcional Hora de la cita.'
+        required: false
+        example: '10:00:00'
+        type: time
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      estado:
+        name: estado
+        description: 'opcional Estado de la cita.'
+        required: false
+        example: programada
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      paciente_id: 1
+      especialidad_id: 1
+      medico_id: 1
+      consultorio_id: 1
+      fecha: '2025-01-01'
+      hora: '10:00:00'
+      estado: programada
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "especialidad_id": 1,
+            "medico_id": 1,
+            "consultorio_id": 1,
+            "fecha": "2025-01-01",
+            "hora": "10:00:00",
+            "estado": "programada"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Cita no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/citas/{id}'
+    metadata:
+      groupName: Citas
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Elimina una cita existente.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la cita.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Cita eliminada"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Cita no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []

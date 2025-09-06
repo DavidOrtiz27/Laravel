@@ -1,0 +1,446 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/afiliaciones
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Grupo: Afiliacion
+        Obtiene una lista de todas las afiliaciones.
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "paciente_id": 1,
+                "aseguradora_id": 1,
+                "fecha_inicio": "2025-01-01",
+                "fecha_fin": "2025-12-31",
+                "estado": "activo"
+              }
+            ]
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/afiliaciones
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Grupo: Afiliacion
+        Crea una nueva afiliación.
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paciente_id:
+        name: paciente_id
+        description: 'ID del paciente.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      aseguradora_id:
+        name: aseguradora_id
+        description: 'ID de la aseguradora.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      fecha_inicio:
+        name: fecha_inicio
+        description: 'Fecha de inicio de la afiliación.'
+        required: true
+        example: '2025-01-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      fecha_fin:
+        name: fecha_fin
+        description: 'opcional Fecha de fin de la afiliación.'
+        required: false
+        example: '2025-12-31'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      estado:
+        name: estado
+        description: 'Estado de la afiliación.'
+        required: true
+        example: activo
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      paciente_id: 1
+      aseguradora_id: 1
+      fecha_inicio: '2025-01-01'
+      fecha_fin: '2025-12-31'
+      estado: activo
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "aseguradora_id": 1,
+            "fecha_inicio": "2025-01-01",
+            "fecha_fin": "2025-12-31",
+            "estado": "activo"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/afiliaciones/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Grupo: Afiliacion
+        Obtiene una afiliación específica por su ID.
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la afiliación.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "aseguradora_id": 1,
+            "fecha_inicio": "2025-01-01",
+            "fecha_fin": "2025-12-31",
+            "estado": "activo"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Afiliación no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/afiliaciones/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Grupo: Afiliacion
+        Actualiza una afiliación existente.
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la afiliación.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paciente_id:
+        name: paciente_id
+        description: 'opcional ID del paciente.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      aseguradora_id:
+        name: aseguradora_id
+        description: 'opcional ID de la aseguradora.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      fecha_inicio:
+        name: fecha_inicio
+        description: 'opcional Fecha de inicio de la afiliación.'
+        required: false
+        example: '2025-01-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      fecha_fin:
+        name: fecha_fin
+        description: 'opcional Fecha de fin de la afiliación.'
+        required: false
+        example: '2025-12-31'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        custom: []
+      estado:
+        name: estado
+        description: 'opcional Estado de la afiliación.'
+        required: false
+        example: activo
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      paciente_id: 1
+      aseguradora_id: 1
+      fecha_inicio: '2025-01-01'
+      fecha_fin: '2025-12-31'
+      estado: activo
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "paciente_id": 1,
+            "aseguradora_id": 1,
+            "fecha_inicio": "2025-01-01",
+            "fecha_fin": "2025-12-31",
+            "estado": "activo"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Los datos proporcionados no son válidos"
+          }
+        headers: []
+        description: 'Validation error'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Afiliación no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/afiliaciones/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Grupo: Afiliacion
+        Elimina una afiliación existente.
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID de la afiliación.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Afiliación eliminada"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Afiliación no encontrada"
+          }
+        headers: []
+        description: 'Not found'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []

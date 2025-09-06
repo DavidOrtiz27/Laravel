@@ -1,0 +1,4345 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/127.0.0.1:8000"
+        }
+    ],
+    "info": {
+        "name": "Laravel - Documentaci\u00f3n de la API",
+        "_postman_id": "2788d0db-0ad2-4288-bf06-7247aab8c766",
+        "description": "API para la gesti\u00f3n del sistema de Evaluaci\u00f3n de Programas y Servicios.",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Aseguradora",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las aseguradoras.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/aseguradoras",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/aseguradoras"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Aseguradora Example\",\n      \"nit\": \"123456789\",\n      \"direccion\": \"Calle Principal 123\",\n      \"telefono\": \"1234567890\",\n      \"email\": \"contacto@aseguradora.com\",\n      \"ciudad\": \"1\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea una nueva aseguradora.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/aseguradoras",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/aseguradoras"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Aseguradora Example\",\"nit\":\"123456789\",\"direccion\":\"Calle Principal 123\",\"telefono\":\"1234567890\",\"email\":\"contacto@aseguradora.com\",\"ciudad\":\"1\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Aseguradora Example\",\n  \"nit\": \"123456789\",\n  \"direccion\": \"Calle Principal 123\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"contacto@aseguradora.com\",\n  \"ciudad\": \"1\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una aseguradora espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/aseguradoras\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/aseguradoras\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la aseguradora."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Aseguradora Example\",\n  \"nit\": \"123456789\",\n  \"direccion\": \"Calle Principal 123\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"contacto@aseguradora.com\",\n  \"ciudad\": \"1\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Aseguradora no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza una aseguradora existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/aseguradoras\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/aseguradoras\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la aseguradora."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Aseguradora Example\",\"nit\":\"123456789\",\"direccion\":\"Calle Principal 123\",\"telefono\":\"1234567890\",\"email\":\"contacto@aseguradora.com\",\"ciudad\":\"1\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Aseguradora Example\",\n  \"nit\": \"123456789\",\n  \"direccion\": \"Calle Principal 123\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"contacto@aseguradora.com\",\n  \"ciudad\": \"1\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Aseguradora no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina una aseguradora existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/aseguradoras\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/aseguradoras\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la aseguradora."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Aseguradora eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Aseguradora no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "Registra un nuevo usuario en el sistema.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/registrar",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/registrar"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"John Doe\",\"email\":\"john@example.com\",\"password\":\"password123\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Usuario creado satisfactoriamente\",\n  \"user\": {\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"role\": \"user\"\n  },\n  \"role\": \"user\"\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Inicia sesi\u00f3n de usuario y genera token de acceso.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"user@example.com\",\"password\":\"password123\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Login exitoso\",\n  \"user\": {\n    \"id\": 1,\n    \"name\": \"John Doe\",\n    \"email\": \"user@example.com\",\n    \"role\": \"user\"\n  },\n  \"token\": \"1|example-token-string\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n  \"message\": \"Credenciales incorrectas\"\n}",
+                            "name": "Invalid credentials"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cierra la sesi\u00f3n del usuario actual eliminando el token de acceso.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Sesi\u00f3n cerrada\"\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Registra un nuevo administrador en el sistema.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Admin User\",\"email\":\"admin@example.com\",\"password\":\"admin123\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Admin creado satisfactoriamente\",\n  \"user\": {\n    \"name\": \"Admin User\",\n    \"email\": \"admin@example.com\",\n    \"role\": \"admin\"\n  },\n  \"role\": \"admin\"\n}",
+                            "name": "Success"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Citas",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las citas.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/citas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/citas"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"paciente_id\": 1,\n      \"especialidad_id\": 1,\n      \"medico_id\": 1,\n      \"consultorio_id\": 1,\n      \"fecha\": \"2025-01-01\",\n      \"hora\": \"10:00:00\",\n      \"estado\": \"programada\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una cita espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/citas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/citas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la cita."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"especialidad_id\": 1,\n  \"medico_id\": 1,\n  \"consultorio_id\": 1,\n  \"fecha\": \"2025-01-01\",\n  \"hora\": \"10:00:00\",\n  \"estado\": \"programada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Cita no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea una nueva cita.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/citas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/citas"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paciente_id\":1,\"especialidad_id\":1,\"medico_id\":1,\"consultorio_id\":1,\"fecha\":\"2025-01-01\",\"hora\":\"10:00:00\",\"estado\":\"programada\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"especialidad_id\": 1,\n  \"medico_id\": 1,\n  \"consultorio_id\": 1,\n  \"fecha\": \"2025-01-01\",\n  \"hora\": \"10:00:00\",\n  \"estado\": \"programada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza una cita existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/citas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/citas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la cita."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paciente_id\":1,\"especialidad_id\":1,\"medico_id\":1,\"consultorio_id\":1,\"fecha\":\"2025-01-01\",\"hora\":\"10:00:00\",\"estado\":\"programada\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"especialidad_id\": 1,\n  \"medico_id\": 1,\n  \"consultorio_id\": 1,\n  \"fecha\": \"2025-01-01\",\n  \"hora\": \"10:00:00\",\n  \"estado\": \"programada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Cita no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina una cita existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/citas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/citas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la cita."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Cita eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Cita no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Ciudad",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las ciudades.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ciudades",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ciudades"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Ciudad Example\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una ciudad espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ciudades\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ciudades\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la ciudad."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Ciudad Example\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Ciudad no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Consulta Medica",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las consultas m\u00e9dicas.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultas-medicas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultas-medicas"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"cita_id\": 1,\n      \"motivo\": \"Dolor de cabeza\",\n      \"diagnostico\": \"Migra\u00f1a\",\n      \"tratamiento\": \"Medicamento para migra\u00f1a\",\n      \"fecha_consulta\": \"2025-09-05\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea una nueva consulta m\u00e9dica.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultas-medicas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultas-medicas"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"cita_id\":1,\"motivo\":\"Dolor de cabeza\",\"diagnostico\":\"Migra\u00f1a\",\"tratamiento\":\"Medicamento para migra\u00f1a\",\"fecha_consulta\":\"2025-09-05\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"cita_id\": 1,\n  \"motivo\": \"Dolor de cabeza\",\n  \"diagnostico\": \"Migra\u00f1a\",\n  \"tratamiento\": \"Medicamento para migra\u00f1a\",\n  \"fecha_consulta\": \"2025-09-05\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una consulta m\u00e9dica espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultas-medicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultas-medicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la consulta m\u00e9dica."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"cita_id\": 1,\n  \"motivo\": \"Dolor de cabeza\",\n  \"diagnostico\": \"Migra\u00f1a\",\n  \"tratamiento\": \"Medicamento para migra\u00f1a\",\n  \"fecha_consulta\": \"2025-09-05\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Consulta m\u00e9dica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza una consulta m\u00e9dica existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultas-medicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultas-medicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la consulta m\u00e9dica."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"cita_id\":1,\"motivo\":\"Dolor de cabeza\",\"diagnostico\":\"Migra\u00f1a\",\"tratamiento\":\"Medicamento para migra\u00f1a\",\"fecha_consulta\":\"2025-09-05\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"cita_id\": 1,\n  \"motivo\": \"Dolor de cabeza\",\n  \"diagnostico\": \"Migra\u00f1a\",\n  \"tratamiento\": \"Medicamento para migra\u00f1a\",\n  \"fecha_consulta\": \"2025-09-05\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Consulta m\u00e9dica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina una consulta m\u00e9dica existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultas-medicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultas-medicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la consulta m\u00e9dica."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Consulta m\u00e9dica eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Consulta m\u00e9dica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Consultorio",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todos los consultorios.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultorios",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultorios"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"ciudad_id\": 1,\n      \"nombre\": \"Consultorio Principal\",\n      \"direccion\": \"Calle 123\",\n      \"telefono\": \"1234567890\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea un nuevo consultorio.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultorios",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultorios"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"ciudad_id\":1,\"nombre\":\"Consultorio Principal\",\"direccion\":\"Calle 123\",\"telefono\":\"1234567890\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"ciudad_id\": 1,\n  \"nombre\": \"Consultorio Principal\",\n  \"direccion\": \"Calle 123\",\n  \"telefono\": \"1234567890\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene un consultorio espec\u00edfico por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultorios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultorios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del consultorio."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"ciudad_id\": 1,\n  \"nombre\": \"Consultorio Principal\",\n  \"direccion\": \"Calle 123\",\n  \"telefono\": \"1234567890\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Consultorio no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza un consultorio existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultorios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultorios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del consultorio."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"ciudad_id\":1,\"nombre\":\"Consultorio Principal\",\"direccion\":\"Calle 123\",\"telefono\":\"1234567890\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"ciudad_id\": 1,\n  \"nombre\": \"Consultorio Principal\",\n  \"direccion\": \"Calle 123\",\n  \"telefono\": \"1234567890\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Consultorio no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina un consultorio existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consultorios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/consultorios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del consultorio."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Consultorio eliminado\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Consultorio no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Grupo: Afiliacion\nObtiene una lista de todas las afiliaciones.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/afiliaciones",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/afiliaciones"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"paciente_id\": 1,\n      \"aseguradora_id\": 1,\n      \"fecha_inicio\": \"2025-01-01\",\n      \"fecha_fin\": \"2025-12-31\",\n      \"estado\": \"activo\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Grupo: Afiliacion\nCrea una nueva afiliaci\u00f3n.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/afiliaciones",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/afiliaciones"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paciente_id\":1,\"aseguradora_id\":1,\"fecha_inicio\":\"2025-01-01\",\"fecha_fin\":\"2025-12-31\",\"estado\":\"activo\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"aseguradora_id\": 1,\n  \"fecha_inicio\": \"2025-01-01\",\n  \"fecha_fin\": \"2025-12-31\",\n  \"estado\": \"activo\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Grupo: Afiliacion\nObtiene una afiliaci\u00f3n espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/afiliaciones\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/afiliaciones\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la afiliaci\u00f3n."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"aseguradora_id\": 1,\n  \"fecha_inicio\": \"2025-01-01\",\n  \"fecha_fin\": \"2025-12-31\",\n  \"estado\": \"activo\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Afiliaci\u00f3n no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Grupo: Afiliacion\nActualiza una afiliaci\u00f3n existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/afiliaciones\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/afiliaciones\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la afiliaci\u00f3n."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paciente_id\":1,\"aseguradora_id\":1,\"fecha_inicio\":\"2025-01-01\",\"fecha_fin\":\"2025-12-31\",\"estado\":\"activo\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"aseguradora_id\": 1,\n  \"fecha_inicio\": \"2025-01-01\",\n  \"fecha_fin\": \"2025-12-31\",\n  \"estado\": \"activo\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Afiliaci\u00f3n no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Grupo: Afiliacion\nElimina una afiliaci\u00f3n existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/afiliaciones\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/afiliaciones\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la afiliaci\u00f3n."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Afiliaci\u00f3n eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Afiliaci\u00f3n no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Especialidad",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las especialidades.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/especialidades",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/especialidades"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Cardiolog\u00eda\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una especialidad espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/especialidades\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/especialidades\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la especialidad."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Cardiolog\u00eda\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Especialidad no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea una nueva especialidad.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/especialidades",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/especialidades"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Cardiolog\u00eda\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Cardiolog\u00eda\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza una especialidad existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/especialidades\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/especialidades\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la especialidad."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Cardiolog\u00eda\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Cardiolog\u00eda\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Especialidad no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina una especialidad existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/especialidades\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/especialidades\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la especialidad."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Especialidad eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"error\": \"No se puede eliminar, hay citas asociadas.\"\n}",
+                            "name": "Error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Especialidad no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Examen Medico",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todos los ex\u00e1menes m\u00e9dicos.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/examenes-medicos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/examenes-medicos"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"laboratorio_id\": 1,\n      \"nombre\": \"Examen de sangre\",\n      \"descripcion\": \"An\u00e1lisis completo de sangre\",\n      \"precio\": 100.00\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea un nuevo examen m\u00e9dico.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/examenes-medicos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/examenes-medicos"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"laboratorio_id\":1,\"nombre\":\"Examen de sangre\",\"descripcion\":\"An\u00e1lisis completo de sangre\",\"precio\":\"100.00\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"laboratorio_id\": 1,\n  \"nombre\": \"Examen de sangre\",\n  \"descripcion\": \"An\u00e1lisis completo de sangre\",\n  \"precio\": 100.00\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene un examen m\u00e9dico espec\u00edfico por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/examenes-medicos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/examenes-medicos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del examen m\u00e9dico."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"laboratorio_id\": 1,\n  \"nombre\": \"Examen de sangre\",\n  \"descripcion\": \"An\u00e1lisis completo de sangre\",\n  \"precio\": 100.00\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Examen m\u00e9dico no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza un examen m\u00e9dico existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/examenes-medicos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/examenes-medicos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del examen m\u00e9dico."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"laboratorio_id\":1,\"nombre\":\"Examen de sangre\",\"descripcion\":\"An\u00e1lisis completo de sangre\",\"precio\":\"100.00\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"laboratorio_id\": 1,\n  \"nombre\": \"Examen de sangre\",\n  \"descripcion\": \"An\u00e1lisis completo de sangre\",\n  \"precio\": 100.00\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Examen m\u00e9dico no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina un examen m\u00e9dico existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/examenes-medicos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/examenes-medicos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del examen m\u00e9dico."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Examen m\u00e9dico eliminado\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Examen m\u00e9dico no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Factura",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las facturas.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/facturas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/facturas"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"paciente_id\": 1,\n      \"cita_id\": 1,\n      \"monto_total\": 150.00,\n      \"fecha_emision\": \"2025-09-05\",\n      \"estado\": \"pagada\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea una nueva factura.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/facturas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/facturas"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paciente_id\":1,\"cita_id\":1,\"monto_total\":\"150.00\",\"fecha_emision\":\"2025-09-05\",\"estado\":\"pagada\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"cita_id\": 1,\n  \"monto_total\": 150.00,\n  \"fecha_emision\": \"2025-09-05\",\n  \"estado\": \"pagada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una factura espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/facturas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/facturas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la factura."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"cita_id\": 1,\n  \"monto_total\": 150.00,\n  \"fecha_emision\": \"2025-09-05\",\n  \"estado\": \"pagada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Factura no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza una factura existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/facturas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/facturas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la factura."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paciente_id\":1,\"cita_id\":1,\"monto_total\":\"150.00\",\"fecha_emision\":\"2025-09-05\",\"estado\":\"pagada\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"cita_id\": 1,\n  \"monto_total\": 150.00,\n  \"fecha_emision\": \"2025-09-05\",\n  \"estado\": \"pagada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Factura no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina una factura existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/facturas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/facturas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la factura."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Factura eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Factura no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Historia Clinica",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las historias cl\u00ednicas.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/historias-clinicas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/historias-clinicas"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"paciente_id\": 1,\n      \"antecedentes\": \"Historial de hipertensi\u00f3n\",\n      \"alergias\": \"Penicilina\",\n      \"observaciones\": \"Paciente estable\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea una nueva historia cl\u00ednica.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/historias-clinicas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/historias-clinicas"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paciente_id\":1,\"antecedentes\":\"Historial de hipertensi\u00f3n\",\"alergias\":\"Penicilina\",\"observaciones\":\"Paciente estable\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"antecedentes\": \"Historial de hipertensi\u00f3n\",\n  \"alergias\": \"Penicilina\",\n  \"observaciones\": \"Paciente estable\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una historia cl\u00ednica espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/historias-clinicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/historias-clinicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la historia cl\u00ednica."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"antecedentes\": \"Historial de hipertensi\u00f3n\",\n  \"alergias\": \"Penicilina\",\n  \"observaciones\": \"Paciente estable\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Historia cl\u00ednica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza una historia cl\u00ednica existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/historias-clinicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/historias-clinicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la historia cl\u00ednica."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paciente_id\":1,\"antecedentes\":\"Historial de hipertensi\u00f3n\",\"alergias\":\"Penicilina\",\"observaciones\":\"Paciente estable\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"paciente_id\": 1,\n  \"antecedentes\": \"Historial de hipertensi\u00f3n\",\n  \"alergias\": \"Penicilina\",\n  \"observaciones\": \"Paciente estable\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Historia cl\u00ednica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina una historia cl\u00ednica existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/historias-clinicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/historias-clinicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la historia cl\u00ednica."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Historia cl\u00ednica eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Historia cl\u00ednica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Horario",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todos los horarios.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/horarios",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/horarios"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"medico_id\": 1,\n      \"dia_semana\": \"Lunes\",\n      \"hora_inicio\": \"08:00\",\n      \"hora_fin\": \"17:00\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea un nuevo horario.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/horarios",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/horarios"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"medico_id\":1,\"dia_semana\":\"Lunes\",\"hora_inicio\":\"08:00\",\"hora_fin\":\"17:00\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"medico_id\": 1,\n  \"dia_semana\": \"Lunes\",\n  \"hora_inicio\": \"08:00\",\n  \"hora_fin\": \"17:00\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene un horario espec\u00edfico por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/horarios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/horarios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del horario."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"medico_id\": 1,\n  \"dia_semana\": \"Lunes\",\n  \"hora_inicio\": \"08:00\",\n  \"hora_fin\": \"17:00\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Horario no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza un horario existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/horarios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/horarios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del horario."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"medico_id\":1,\"dia_semana\":\"Lunes\",\"hora_inicio\":\"08:00\",\"hora_fin\":\"17:00\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"medico_id\": 1,\n  \"dia_semana\": \"Lunes\",\n  \"hora_inicio\": \"08:00\",\n  \"hora_fin\": \"17:00\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Horario no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina un horario existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/horarios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/horarios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del horario."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Horario eliminado\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Horario no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Laboratorio",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todos los laboratorios.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/laboratorios",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/laboratorios"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Laboratorio Central\",\n      \"direccion\": \"Calle Principal 123\",\n      \"telefono\": \"555-0123\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea un nuevo laboratorio.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/laboratorios",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/laboratorios"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Laboratorio Central\",\"direccion\":\"Calle Principal 123\",\"telefono\":\"555-0123\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Laboratorio Central\",\n  \"direccion\": \"Calle Principal 123\",\n  \"telefono\": \"555-0123\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene un laboratorio espec\u00edfico por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/laboratorios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/laboratorios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del laboratorio."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Laboratorio Central\",\n  \"direccion\": \"Calle Principal 123\",\n  \"telefono\": \"555-0123\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Laboratorio no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza un laboratorio existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/laboratorios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/laboratorios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del laboratorio."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Laboratorio Central\",\"direccion\":\"Calle Principal 123\",\"telefono\":\"555-0123\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Laboratorio Central\",\n  \"direccion\": \"Calle Principal 123\",\n  \"telefono\": \"555-0123\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Laboratorio no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina un laboratorio existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/laboratorios\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/laboratorios\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del laboratorio."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Laboratorio eliminado\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Laboratorio no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Medicamento",
+            "description": "",
+            "item": [
+                {
+                    "name": "Listar todos los medicamentos",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicamentos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicamentos"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Obtiene una lista de todos los medicamentos registrados en el sistema."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Paracetamol\",\n            \"descripcion\": \"Analg\u00e9sico y antipir\u00e9tico\",\n            \"dosis\": \"500mg\",\n            \"presentacion\": \"Tabletas\",\n            \"created_at\": \"2025-09-05T12:00:00.000000Z\",\n            \"updated_at\": \"2025-09-05T12:00:00.000000Z\"\n        }\n    ]\n}",
+                            "name": "\u00c9xito"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crear nuevo medicamento",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicamentos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicamentos"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Paracetamol\",\"descripcion\":\"Analg\u00e9sico y antipir\u00e9tico\",\"dosis\":\"500mg\",\"presentacion\":\"Tabletas\"}"
+                        },
+                        "description": "Registra un nuevo medicamento en el sistema."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"nombre\": \"Paracetamol\",\n    \"descripcion\": \"Analg\u00e9sico y antipir\u00e9tico\",\n    \"dosis\": \"500mg\",\n    \"presentacion\": \"Tabletas\",\n    \"created_at\": \"2025-09-05T12:00:00.000000Z\",\n    \"updated_at\": \"2025-09-05T12:00:00.000000Z\"\n}",
+                            "name": "\u00c9xito"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"nombre\": [\"El campo nombre es obligatorio\"]\n}",
+                            "name": "Error de validaci\u00f3n"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtener medicamento espec\u00edfico",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicamentos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicamentos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "El ID del medicamento."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Muestra la informaci\u00f3n detallada de un medicamento espec\u00edfico."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"nombre\": \"Paracetamol\",\n    \"descripcion\": \"Analg\u00e9sico y antipir\u00e9tico\",\n    \"dosis\": \"500mg\",\n    \"presentacion\": \"Tabletas\",\n    \"created_at\": \"2025-09-05T12:00:00.000000Z\",\n    \"updated_at\": \"2025-09-05T12:00:00.000000Z\"\n}",
+                            "name": "\u00c9xito"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Medicamento].\"\n}",
+                            "name": "No encontrado"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualizar medicamento",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicamentos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicamentos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "El ID del medicamento."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Paracetamol\",\"descripcion\":\"Analg\u00e9sico y antipir\u00e9tico\",\"dosis\":\"500mg\",\"presentacion\":\"Tabletas\"}"
+                        },
+                        "description": "Actualiza la informaci\u00f3n de un medicamento existente."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"nombre\": \"Paracetamol\",\n    \"descripcion\": \"Analg\u00e9sico y antipir\u00e9tico actualizado\",\n    \"dosis\": \"500mg\",\n    \"presentacion\": \"Tabletas\",\n    \"created_at\": \"2025-09-05T12:00:00.000000Z\",\n    \"updated_at\": \"2025-09-05T12:00:00.000000Z\"\n}",
+                            "name": "\u00c9xito"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"nombre\": [\"El formato del nombre es inv\u00e1lido\"]\n}",
+                            "name": "Error de validaci\u00f3n"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Medicamento].\"\n}",
+                            "name": "No encontrado"
+                        }
+                    ]
+                },
+                {
+                    "name": "Eliminar medicamento",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicamentos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicamentos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "El ID del medicamento."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Elimina un medicamento espec\u00edfico del sistema."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Medicamento eliminado\"\n}",
+                            "name": "\u00c9xito"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Medicamento].\"\n}",
+                            "name": "No encontrado"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Medico",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todos los m\u00e9dicos.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicos"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Dr. Juan P\u00e9rez\",\n      \"documento\": \"12345678\",\n      \"telefono\": \"1234567890\",\n      \"email\": \"juan.perez@example.com\",\n      \"especialidad_id\": 1,\n      \"ciudad_id\": 1\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea un nuevo m\u00e9dico.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicos"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Dr. Juan P\u00e9rez\",\"documento\":\"12345678\",\"telefono\":\"1234567890\",\"email\":\"juan.perez@example.com\",\"especialidad_id\":1,\"ciudad_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Dr. Juan P\u00e9rez\",\n  \"documento\": \"12345678\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"juan.perez@example.com\",\n  \"especialidad_id\": 1,\n  \"ciudad_id\": 1\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene un m\u00e9dico espec\u00edfico por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del m\u00e9dico."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Dr. Juan P\u00e9rez\",\n  \"documento\": \"12345678\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"juan.perez@example.com\",\n  \"especialidad_id\": 1,\n  \"ciudad_id\": 1\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"M\u00e9dico no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza un m\u00e9dico existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del m\u00e9dico."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"Dr. Juan P\u00e9rez\",\"documento\":\"12345678\",\"telefono\":\"1234567890\",\"email\":\"juan.perez@example.com\",\"especialidad_id\":1,\"ciudad_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Dr. Juan P\u00e9rez\",\n  \"documento\": \"12345678\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"juan.perez@example.com\",\n  \"especialidad_id\": 1,\n  \"ciudad_id\": 1\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"M\u00e9dico no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina un m\u00e9dico existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/medicos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/medicos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del m\u00e9dico."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"M\u00e9dico eliminado\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"M\u00e9dico no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Orden Examen",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las \u00f3rdenes de examen.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ordenes-examenes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ordenes-examenes"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"consulta_medica_id\": 1,\n      \"examen_medico_id\": 1,\n      \"fecha_solicitud\": \"2025-01-01\",\n      \"resultado\": \"Resultado del examen\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea una nueva orden de examen.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ordenes-examenes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ordenes-examenes"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"consulta_medica_id\":1,\"examen_medico_id\":1,\"fecha_solicitud\":\"2025-01-01\",\"resultado\":\"Resultado del examen\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"consulta_medica_id\": 1,\n  \"examen_medico_id\": 1,\n  \"fecha_solicitud\": \"2025-01-01\",\n  \"resultado\": \"Resultado del examen\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una orden de examen espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ordenes-examenes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ordenes-examenes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la orden de examen."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"consulta_medica_id\": 1,\n  \"examen_medico_id\": 1,\n  \"fecha_solicitud\": \"2025-01-01\",\n  \"resultado\": \"Resultado del examen\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Orden de examen no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza una orden de examen existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ordenes-examenes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ordenes-examenes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la orden de examen."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"consulta_medica_id\":1,\"examen_medico_id\":1,\"fecha_solicitud\":\"2025-01-01\",\"resultado\":\"Resultado del examen\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"consulta_medica_id\": 1,\n  \"examen_medico_id\": 1,\n  \"fecha_solicitud\": \"2025-01-01\",\n  \"resultado\": \"Resultado del examen\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Orden de examen no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina una orden de examen existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ordenes-examenes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ordenes-examenes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la orden de examen."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Orden de examen eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Orden de examen no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Paciente",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todos los pacientes.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pacientes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pacientes"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"John Doe\",\n      \"documento\": \"12345678\",\n      \"telefono\": \"1234567890\",\n      \"email\": \"john@example.com\",\n      \"ciudad_id\": 1\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene un paciente espec\u00edfico por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pacientes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pacientes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del paciente."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"John Doe\",\n  \"documento\": \"12345678\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"john@example.com\",\n  \"ciudad_id\": 1\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Paciente no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea un nuevo paciente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pacientes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pacientes"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"John Doe\",\"documento\":\"12345678\",\"telefono\":\"1234567890\",\"email\":\"john@example.com\",\"ciudad_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"John Doe\",\n  \"documento\": \"12345678\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"john@example.com\",\n  \"ciudad_id\": 1\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza un paciente existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pacientes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pacientes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del paciente."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nombre\":\"John Doe\",\"documento\":\"12345678\",\"telefono\":\"1234567890\",\"email\":\"john@example.com\",\"ciudad_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"John Doe\",\n  \"documento\": \"12345678\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"john@example.com\",\n  \"ciudad_id\": 1\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Paciente no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina un paciente existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pacientes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pacientes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del paciente."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Paciente eliminado\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Paciente no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Pago",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todos los pagos.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pagos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pagos"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"factura_id\": 1,\n      \"fecha_pago\": \"2025-01-01\",\n      \"monto\": 100.00,\n      \"metodo_pago\": \"tarjeta\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea un nuevo pago.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pagos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pagos"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"factura_id\":1,\"fecha_pago\":\"2025-01-01\",\"monto\":\"100.00\",\"metodo_pago\":\"tarjeta\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"factura_id\": 1,\n  \"fecha_pago\": \"2025-01-01\",\n  \"monto\": 100.00,\n  \"metodo_pago\": \"tarjeta\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene un pago espec\u00edfico por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pagos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pagos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del pago."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"factura_id\": 1,\n  \"fecha_pago\": \"2025-01-01\",\n  \"monto\": 100.00,\n  \"metodo_pago\": \"tarjeta\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Pago no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza un pago existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pagos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pagos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del pago."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"factura_id\":1,\"fecha_pago\":\"2025-01-01\",\"monto\":\"100.00\",\"metodo_pago\":\"tarjeta\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"factura_id\": 1,\n  \"fecha_pago\": \"2025-01-01\",\n  \"monto\": 100.00,\n  \"metodo_pago\": \"tarjeta\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Pago no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina un pago existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pagos\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pagos\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID del pago."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Pago eliminado\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Pago no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Receta Medica",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene una lista de todas las recetas m\u00e9dicas.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/recetas-medicas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/recetas-medicas"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"consulta_medica_id\": 1,\n      \"fecha\": \"2025-01-01\",\n      \"indicaciones\": \"Tomar medicamento cada 8 horas\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Crea una nueva receta m\u00e9dica.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/recetas-medicas",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/recetas-medicas"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"consulta_medica_id\":1,\"fecha\":\"2025-01-01\",\"indicaciones\":\"Tomar medicamento cada 8 horas\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"consulta_medica_id\": 1,\n  \"fecha\": \"2025-01-01\",\n  \"indicaciones\": \"Tomar medicamento cada 8 horas\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene una receta m\u00e9dica espec\u00edfica por su ID.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/recetas-medicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/recetas-medicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la receta m\u00e9dica."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"consulta_medica_id\": 1,\n  \"fecha\": \"2025-01-01\",\n  \"indicaciones\": \"Tomar medicamento cada 8 horas\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Receta m\u00e9dica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualiza una receta m\u00e9dica existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/recetas-medicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/recetas-medicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la receta m\u00e9dica."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"consulta_medica_id\":1,\"fecha\":\"2025-01-01\",\"indicaciones\":\"Tomar medicamento cada 8 horas\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"consulta_medica_id\": 1,\n  \"fecha\": \"2025-01-01\",\n  \"indicaciones\": \"Tomar medicamento cada 8 horas\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Los datos proporcionados no son v\u00e1lidos\"\n}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Receta m\u00e9dica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Elimina una receta m\u00e9dica existente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/recetas-medicas\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/recetas-medicas\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID de la receta m\u00e9dica."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Receta m\u00e9dica eliminada\"\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Receta m\u00e9dica no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Reportes",
+            "description": "",
+            "item": [
+                {
+                    "name": "Obtiene todas las citas de un paciente espec\u00edfico.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reportes\/citas\/:pacienteId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reportes\/citas\/:pacienteId",
+                            "variable": [
+                                {
+                                    "id": "pacienteId",
+                                    "key": "pacienteId",
+                                    "value": "1",
+                                    "description": "ID del paciente."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"paciente_id\": 1,\n      \"medico\": {\n        \"id\": 1,\n        \"nombre\": \"Dr. Juan P\u00e9rez\"\n      },\n      \"especialidad\": {\n        \"id\": 1,\n        \"nombre\": \"Cardiolog\u00eda\"\n      },\n      \"fecha\": \"2025-09-05\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene el historial cl\u00ednico completo de un paciente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reportes\/historial\/:pacienteId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reportes\/historial\/:pacienteId",
+                            "variable": [
+                                {
+                                    "id": "pacienteId",
+                                    "key": "pacienteId",
+                                    "value": "1",
+                                    "description": "ID del paciente."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Juan Garc\u00eda\",\n  \"historia_clinica\": {\n    \"id\": 1,\n    \"antecedentes\": \"Hipertensi\u00f3n\"\n  },\n  \"consultas_medicas\": [\n    {\n      \"id\": 1,\n      \"fecha\": \"2025-09-05\",\n      \"diagnostico\": \"Gripe\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Paciente no encontrado\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene todos los pagos realizados por un paciente.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reportes\/pagos\/:pacienteId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reportes\/pagos\/:pacienteId",
+                            "variable": [
+                                {
+                                    "id": "pacienteId",
+                                    "key": "pacienteId",
+                                    "value": "1",
+                                    "description": "ID del paciente."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"monto\": 150.00,\n      \"fecha\": \"2025-09-05\",\n      \"factura\": {\n        \"id\": 1,\n        \"numero\": \"F001-0001\",\n        \"total\": 150.00\n      }\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene todas las recetas m\u00e9dicas asociadas a una consulta.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reportes\/recetas\/:consultaId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reportes\/recetas\/:consultaId",
+                            "variable": [
+                                {
+                                    "id": "consultaId",
+                                    "key": "consultaId",
+                                    "value": "1",
+                                    "description": "ID de la consulta m\u00e9dica."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"consulta_medica_id\": 1,\n      \"medicamento\": {\n        \"id\": 1,\n        \"nombre\": \"Paracetamol\",\n        \"dosis\": \"500mg\"\n      },\n      \"indicaciones\": \"Tomar cada 8 horas\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtiene todos los pacientes afiliados a una aseguradora espec\u00edfica.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reportes\/aseguradora\/:aseguradoraId\/pacientes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reportes\/aseguradora\/:aseguradoraId\/pacientes",
+                            "variable": [
+                                {
+                                    "id": "aseguradoraId",
+                                    "key": "aseguradoraId",
+                                    "value": "1",
+                                    "description": "ID de la aseguradora."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"nombre\": \"Seguros ABC\",\n  \"pacientes\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Juan Garc\u00eda\",\n      \"numero_afiliado\": \"AF001\"\n    }\n  ]\n}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Aseguradora no encontrada\"\n}",
+                            "name": "Not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
+    }
+}

@@ -1,0 +1,287 @@
+name: Auth
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/registrar
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Registra un nuevo usuario en el sistema.'
+      description: ''
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Nombre del usuario.'
+        required: true
+        example: 'John Doe'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Correo electrónico del usuario.'
+        required: true
+        example: john@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Contraseña del usuario.'
+        required: true
+        example: password123
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: 'John Doe'
+      email: john@example.com
+      password: password123
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Usuario creado satisfactoriamente",
+            "user": {
+              "name": "John Doe",
+              "email": "john@example.com",
+              "role": "user"
+            },
+            "role": "user"
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Inicia sesión de usuario y genera token de acceso.'
+      description: ''
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Correo electrónico del usuario.'
+        required: true
+        example: user@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Contraseña del usuario.'
+        required: true
+        example: password123
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: user@example.com
+      password: password123
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Login exitoso",
+            "user": {
+              "id": 1,
+              "name": "John Doe",
+              "email": "user@example.com",
+              "role": "user"
+            },
+            "token": "1|example-token-string"
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+            "message": "Credenciales incorrectas"
+          }
+        headers: []
+        description: 'Invalid credentials'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cierra la sesión del usuario actual eliminando el token de acceso.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Sesión cerrada"
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/admin/register
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Registra un nuevo administrador en el sistema.'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Nombre del administrador.'
+        required: true
+        example: 'Admin User'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Correo electrónico del administrador.'
+        required: true
+        example: admin@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Contraseña del administrador.'
+        required: true
+        example: admin123
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: 'Admin User'
+      email: admin@example.com
+      password: admin123
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Admin creado satisfactoriamente",
+            "user": {
+              "name": "Admin User",
+              "email": "admin@example.com",
+              "role": "admin"
+            },
+            "role": "admin"
+          }
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b6c1veVE5a4D8ad6kZ3ghPf'
+    controller: null
+    method: null
+    route: null
+    custom: []

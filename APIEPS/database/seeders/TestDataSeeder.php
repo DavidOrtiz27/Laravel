@@ -36,7 +36,7 @@ class TestDataSeeder extends Seeder
         try {
             // Limpiar tablas existentes (en orden inverso por dependencias)
             $this->cleanTables();
-            
+
             // Crear datos en orden de dependencias
             $this->createCiudades();
             $this->createEspecialidades();
@@ -56,9 +56,9 @@ class TestDataSeeder extends Seeder
             $this->createFacturas();
             $this->createPagos();
             $this->createHorarios();
-            
+
             echo "\n✅ Base de datos poblada exitosamente con datos de prueba!\n";
-            
+
         } catch (Exception $e) {
             echo "\n❌ Error al poblar la base de datos: " . $e->getMessage() . "\n";
             throw $e;
@@ -71,24 +71,24 @@ class TestDataSeeder extends Seeder
     private function cleanTables(): void
     {
         echo "🧹 Limpiando tablas existentes...\n";
-        
+
         // Deshabilitar verificación de claves foráneas temporalmente
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-        
+
         $tables = [
-            'pagos', 'facturas', 'ordenes_examenes', 'examenes_Medico',
+            'pagos', 'facturas', 'ordenes_examenes', 'examenes_medicos',
             'recetas_medicas', 'consultas_medicas', 'historias_clinicas',
             'citas', 'horarios', 'pacientes', 'medicos', 'consultorios',
             'especialidades', 'afiliaciones', 'aseguradoras', 'ciudades'
         ];
-        
+
         foreach ($tables as $table) {
             DB::table($table)->truncate();
         }
-        
+
         // Rehabilitar verificación de claves foráneas
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
-        
+
         echo "✅ Tablas limpiadas\n";
     }
 
@@ -98,7 +98,7 @@ class TestDataSeeder extends Seeder
     private function createCiudades(): void
     {
         echo "🏙️ Creando ciudades...\n";
-        
+
         $ciudades = [
             ['nombre' => 'Bogotá'],
             ['nombre' => 'Medellín'],
@@ -106,11 +106,11 @@ class TestDataSeeder extends Seeder
             ['nombre' => 'Barranquilla'],
             ['nombre' => 'Cartagena']
         ];
-        
+
         foreach ($ciudades as $ciudad) {
             Ciudad::create($ciudad);
         }
-        
+
         echo "✅ Ciudades creadas\n";
     }
 
@@ -120,7 +120,7 @@ class TestDataSeeder extends Seeder
     private function createEspecialidades(): void
     {
         echo "🏥 Creando especialidades...\n";
-        
+
         $especialidades = [
             ['nombre' => 'Medicina General'],
             ['nombre' => 'Cardiología'],
@@ -128,11 +128,11 @@ class TestDataSeeder extends Seeder
             ['nombre' => 'Ginecología'],
             ['nombre' => 'Pediatría']
         ];
-        
+
         foreach ($especialidades as $especialidad) {
             Especialidad::create($especialidad);
         }
-        
+
         echo "✅ Especialidades creadas\n";
     }
 
@@ -142,7 +142,7 @@ class TestDataSeeder extends Seeder
     private function createConsultorios(): void
     {
         echo "🏢 Creando consultorios...\n";
-        
+
         $consultorios = [
             ['nombre' => 'Consultorio 101', 'ciudad_id' => 1],
             ['nombre' => 'Consultorio 102', 'ciudad_id' => 1],
@@ -150,11 +150,11 @@ class TestDataSeeder extends Seeder
             ['nombre' => 'Consultorio 202', 'ciudad_id' => 2],
             ['nombre' => 'Consultorio 301', 'ciudad_id' => 3]
         ];
-        
+
         foreach ($consultorios as $consultorio) {
             Consultorio::create($consultorio);
         }
-        
+
         echo "✅ Consultorios creados\n";
     }
 
@@ -164,7 +164,7 @@ class TestDataSeeder extends Seeder
     private function createMedicos(): void
     {
         echo "👨‍⚕️ Creando médicos...\n";
-        
+
         $medicos = [
             [
                 'nombre' => 'Dr. Juan Pérez',
@@ -191,11 +191,11 @@ class TestDataSeeder extends Seeder
                 'telefono' => '3001122334'
             ]
         ];
-        
+
         foreach ($medicos as $medico) {
             Medico::create($medico);
         }
-        
+
         echo "✅ Médicos creados\n";
     }
 
@@ -205,7 +205,7 @@ class TestDataSeeder extends Seeder
     private function createPacientes(): void
     {
         echo "👤 Creando pacientes...\n";
-        
+
         $pacientes = [
             [
                 'nombre' => 'Ana Rodríguez',
@@ -232,11 +232,11 @@ class TestDataSeeder extends Seeder
                 'ciudad_id' => 3
             ]
         ];
-        
+
         foreach ($pacientes as $paciente) {
             Paciente::create($paciente);
         }
-        
+
         echo "✅ Pacientes creados\n";
     }
 
@@ -246,7 +246,7 @@ class TestDataSeeder extends Seeder
     private function createCitas(): void
     {
         echo "📅 Creando citas...\n";
-        
+
         $citas = [
             [
                 'paciente_id' => 1,
@@ -276,11 +276,11 @@ class TestDataSeeder extends Seeder
                 'estado' => 'pendiente'
             ]
         ];
-        
+
         foreach ($citas as $cita) {
             Cita::create($cita);
         }
-        
+
         echo "✅ Citas creadas\n";
     }
 
@@ -290,7 +290,7 @@ class TestDataSeeder extends Seeder
     private function createAseguradoras(): void
     {
         echo "🏥 Creando aseguradoras...\n";
-        
+
         $aseguradoras = [
             [
                 'nombre' => 'EPS Sanitas',
@@ -314,11 +314,11 @@ class TestDataSeeder extends Seeder
                 'ciudad_id' => 3
             ]
         ];
-        
+
         foreach ($aseguradoras as $aseguradora) {
             Aseguradora::create($aseguradora);
         }
-        
+
         echo "✅ Aseguradoras creadas\n";
     }
 
@@ -328,7 +328,7 @@ class TestDataSeeder extends Seeder
     private function createAfiliaciones(): void
     {
         echo "📋 Creando afiliaciones...\n";
-        
+
         $afiliaciones = [
             [
                 'paciente_id' => 1,
@@ -349,11 +349,11 @@ class TestDataSeeder extends Seeder
                 'fecha_fin' => '2025-12-31'
             ]
         ];
-        
+
         foreach ($afiliaciones as $afiliacion) {
             Afiliacion::create($afiliacion);
         }
-        
+
         echo "✅ Afiliaciones creadas\n";
     }
 
@@ -363,7 +363,7 @@ class TestDataSeeder extends Seeder
     private function createHistoriasClinicas(): void
     {
         echo "📋 Creando historias clínicas...\n";
-        
+
         $historias = [
             [
                 'paciente_id' => 1,
@@ -381,11 +381,11 @@ class TestDataSeeder extends Seeder
                 'observaciones' => 'Paciente con alergias a medicamentos'
             ]
         ];
-        
+
         foreach ($historias as $historia) {
             HistoriaClinica::create($historia);
         }
-        
+
         echo "✅ Historias clínicas creadas\n";
     }
 
@@ -395,7 +395,7 @@ class TestDataSeeder extends Seeder
     private function createConsultasMedicas(): void
     {
         echo "🏥 Creando consultas médicas...\n";
-        
+
         $consultas = [
             [
                 'cita_id' => 1,
@@ -419,11 +419,11 @@ class TestDataSeeder extends Seeder
                 'fecha_consulta' => '2025-01-17'
             ]
         ];
-        
+
         foreach ($consultas as $consulta) {
             ConsultaMedica::create($consulta);
         }
-        
+
         echo "✅ Consultas médicas creadas\n";
     }
 
@@ -433,7 +433,7 @@ class TestDataSeeder extends Seeder
     private function createMedicamentos(): void
     {
         echo "💊 Creando medicamentos...\n";
-        
+
         $medicamentos = [
             [
                 'nombre' => 'Paracetamol',
@@ -454,11 +454,11 @@ class TestDataSeeder extends Seeder
                 'stock' => 50
             ]
         ];
-        
+
         foreach ($medicamentos as $medicamento) {
             Medicamento::create($medicamento);
         }
-        
+
         echo "✅ Medicamentos creados\n";
     }
 
@@ -468,7 +468,7 @@ class TestDataSeeder extends Seeder
     private function createRecetasMedicas(): void
     {
         echo "📝 Creando recetas médicas...\n";
-        
+
         $recetas = [
             [
                 'consulta_medica_id' => 1,
@@ -492,11 +492,11 @@ class TestDataSeeder extends Seeder
                 'duracion' => '10 días'
             ]
         ];
-        
+
         foreach ($recetas as $receta) {
             RecetaMedica::create($receta);
         }
-        
+
         echo "✅ Recetas médicas creadas\n";
     }
 
@@ -506,7 +506,7 @@ class TestDataSeeder extends Seeder
     private function createLaboratorios(): void
     {
         echo "🔬 Creando laboratorios...\n";
-        
+
         $laboratorios = [
             [
                 'nombre' => 'Laboratorio Central',
@@ -527,11 +527,11 @@ class TestDataSeeder extends Seeder
                 'ciudad_id' => 3
             ]
         ];
-        
+
         foreach ($laboratorios as $laboratorio) {
             Laboratorio::create($laboratorio);
         }
-        
+
         echo "✅ Laboratorios creados\n";
     }
 
@@ -541,7 +541,7 @@ class TestDataSeeder extends Seeder
     private function createExamenesMedicos(): void
     {
         echo "🔬 Creando exámenes médicos...\n";
-        
+
         $examenes = [
             [
                 'nombre' => 'Hemograma Completo',
@@ -559,11 +559,11 @@ class TestDataSeeder extends Seeder
                 'tipo' => 'especializado'
             ]
         ];
-        
+
         foreach ($examenes as $examen) {
             ExamenMedico::create($examen);
         }
-        
+
         echo "✅ Exámenes médicos creados\n";
     }
 
@@ -573,7 +573,7 @@ class TestDataSeeder extends Seeder
     private function createOrdenesExamenes(): void
     {
         echo "📋 Creando órdenes de examen...\n";
-        
+
         $ordenes = [
             [
                 'consulta_medica_id' => 1,
@@ -597,11 +597,11 @@ class TestDataSeeder extends Seeder
                 'estado' => 'Pendiente'
             ]
         ];
-        
+
         foreach ($ordenes as $orden) {
             OrdenExamen::create($orden);
         }
-        
+
         echo "✅ Órdenes de examen creadas\n";
     }
 
@@ -611,7 +611,7 @@ class TestDataSeeder extends Seeder
     private function createFacturas(): void
     {
         echo "💰 Creando facturas...\n";
-        
+
         $facturas = [
             [
                 'paciente_id' => 1,
@@ -635,11 +635,11 @@ class TestDataSeeder extends Seeder
                 'estado' => 'pendiente'
             ]
         ];
-        
+
         foreach ($facturas as $factura) {
             Factura::create($factura);
         }
-        
+
         echo "✅ Facturas creadas\n";
     }
 
@@ -649,7 +649,7 @@ class TestDataSeeder extends Seeder
     private function createPagos(): void
     {
         echo "💳 Creando pagos...\n";
-        
+
         $pagos = [
             [
                 'factura_id' => 1,
@@ -670,11 +670,11 @@ class TestDataSeeder extends Seeder
                 'metodo_pago' => 'transferencia'
             ]
         ];
-        
+
         foreach ($pagos as $pago) {
             Pago::create($pago);
         }
-        
+
         echo "✅ Pagos creados\n";
     }
 
@@ -684,7 +684,7 @@ class TestDataSeeder extends Seeder
     private function createHorarios(): void
     {
         echo "⏰ Creando horarios...\n";
-        
+
         $horarios = [
             [
                 'medico_id' => 1,
@@ -708,11 +708,11 @@ class TestDataSeeder extends Seeder
                 'hora_fin' => '14:00:00'
             ]
         ];
-        
+
         foreach ($horarios as $horario) {
             Horario::create($horario);
         }
-        
+
         echo "✅ Horarios creados\n";
     }
 }

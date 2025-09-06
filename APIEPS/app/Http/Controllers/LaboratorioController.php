@@ -8,14 +8,45 @@ use Illuminate\Support\Facades\Validator;
 
 class LaboratorioController extends Controller
 {
-    // Listar todos los Laboratorio
+    /**
+     * Obtiene una lista de todos los laboratorios.
+     *
+     * @group Laboratorio
+     * @response 200 scenario="Success" {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "nombre": "Laboratorio Central",
+     *       "direccion": "Calle Principal 123",
+     *       "telefono": "555-0123"
+     *     }
+     *   ]
+     * }
+     */
     public function index()
     {
         $Laboratorio = Laboratorio::all();
         return response()->json($Laboratorio);
     }
 
-    // Crear nuevo laboratorio
+    /**
+     * Crea un nuevo laboratorio.
+     *
+     * @group Laboratorio
+     * @bodyParam nombre string required Nombre del laboratorio. Example: Laboratorio Central
+     * @bodyParam direccion string opcional Dirección del laboratorio. Example: Calle Principal 123
+     * @bodyParam telefono string opcional Teléfono del laboratorio. Example: 555-0123
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "nombre": "Laboratorio Central",
+     *   "direccion": "Calle Principal 123",
+     *   "telefono": "555-0123"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -32,14 +63,50 @@ class LaboratorioController extends Controller
         return response()->json($laboratorio);
     }
 
-    // Listar laboratorio por ID
+    /**
+     * Obtiene un laboratorio específico por su ID.
+     *
+     * @group Laboratorio
+     * @urlParam id string required ID del laboratorio. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "nombre": "Laboratorio Central",
+     *   "direccion": "Calle Principal 123",
+     *   "telefono": "555-0123"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Laboratorio no encontrado"
+     * }
+     */
     public function show(string $id)
     {
         $laboratorio = Laboratorio::findOrFail($id);
         return response()->json($laboratorio);
     }
 
-    // Actualizar laboratorio
+    /**
+     * Actualiza un laboratorio existente.
+     *
+     * @group Laboratorio
+     * @urlParam id string required ID del laboratorio. Example: 1
+     * @bodyParam nombre string opcional Nombre del laboratorio. Example: Laboratorio Central
+     * @bodyParam direccion string opcional Dirección del laboratorio. Example: Calle Principal 123
+     * @bodyParam telefono string opcional Teléfono del laboratorio. Example: 555-0123
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "nombre": "Laboratorio Central",
+     *   "direccion": "Calle Principal 123",
+     *   "telefono": "555-0123"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Laboratorio no encontrado"
+     * }
+     */
     public function update(Request $request, string $id)
     {
         $laboratorio = Laboratorio::findOrFail($id);
@@ -58,7 +125,19 @@ class LaboratorioController extends Controller
         return response()->json($laboratorio);
     }
 
-    // Eliminar laboratorio
+    /**
+     * Elimina un laboratorio existente.
+     *
+     * @group Laboratorio
+     * @urlParam id string required ID del laboratorio. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "message": "Laboratorio eliminado"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Laboratorio no encontrado"
+     * }
+     */
     public function destroy(string $id)
     {
         $laboratorio = Laboratorio::findOrFail($id);

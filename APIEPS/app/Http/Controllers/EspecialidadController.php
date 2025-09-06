@@ -9,14 +9,41 @@ use Illuminate\Support\Facades\Validator;
 
 class EspecialidadController extends Controller
 {
-    // Listar todas las Especialidad
+    /**
+     * Obtiene una lista de todas las especialidades.
+     *
+     * @group Especialidad
+     * @response 200 scenario="Success" {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "nombre": "Cardiología"
+     *     }
+     *   ]
+     * }
+     *
+     * @unauthenticated
+     */
     public function index()
     {
         $Especialidad = Especialidad::all();
         return response()->json($Especialidad);
     }
 
-    // Crear nueva especialidad
+    /**
+     * Crea una nueva especialidad.
+     *
+     * @group Especialidad
+     * @bodyParam nombre string required Nombre de la especialidad. Example: Cardiología
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "nombre": "Cardiología"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -31,14 +58,46 @@ class EspecialidadController extends Controller
         return response()->json($especialidad);
     }
 
-    // Listar especialidad por ID
+    /**
+     * Obtiene una especialidad específica por su ID.
+     *
+     * @group Especialidad
+     * @urlParam id string required ID de la especialidad. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "nombre": "Cardiología"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Especialidad no encontrada"
+     * }
+     *
+     * @unauthenticated
+     */
     public function show(string $id)
     {
         $especialidad = Especialidad::findOrFail($id);
         return response()->json($especialidad);
     }
 
-    // Actualizar especialidad
+    /**
+     * Actualiza una especialidad existente.
+     *
+     * @group Especialidad
+     * @urlParam id string required ID de la especialidad. Example: 1
+     * @bodyParam nombre string required Nombre de la especialidad. Example: Cardiología
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "nombre": "Cardiología"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Especialidad no encontrada"
+     * }
+     */
     public function update(Request $request, string $id)
     {
         $especialidad = Especialidad::findOrFail($id);
@@ -55,7 +114,22 @@ class EspecialidadController extends Controller
         return response()->json($especialidad);
     }
 
-    // Eliminar especialidad
+    /**
+     * Elimina una especialidad existente.
+     *
+     * @group Especialidad
+     * @urlParam id string required ID de la especialidad. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "message": "Especialidad eliminada"
+     * }
+     * @response 400 scenario="Error" {
+     *   "error": "No se puede eliminar, hay citas asociadas."
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Especialidad no encontrada"
+     * }
+     */
     public function destroy(string $id)
     {
         $especialidad = Especialidad::find($id);

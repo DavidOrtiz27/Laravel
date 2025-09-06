@@ -8,14 +8,48 @@ use Illuminate\Support\Facades\Validator;
 
 class HorarioController extends Controller
 {
-    // Listar todos los Horario
+    /**
+     * Obtiene una lista de todos los horarios.
+     *
+     * @group Horario
+     * @response 200 scenario="Success" {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "medico_id": 1,
+     *       "dia_semana": "Lunes",
+     *       "hora_inicio": "08:00",
+     *       "hora_fin": "17:00"
+     *     }
+     *   ]
+     * }
+     */
     public function index()
     {
         $Horario = Horario::all();
         return response()->json($Horario);
     }
 
-    // Crear nuevo horario
+    /**
+     * Crea un nuevo horario.
+     *
+     * @group Horario
+     * @bodyParam medico_id integer required ID del médico. Example: 1
+     * @bodyParam dia_semana string required Día de la semana. Example: Lunes
+     * @bodyParam hora_inicio string required Hora de inicio en formato HH:mm. Example: 08:00
+     * @bodyParam hora_fin string required Hora de fin en formato HH:mm. Example: 17:00
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "medico_id": 1,
+     *   "dia_semana": "Lunes",
+     *   "hora_inicio": "08:00",
+     *   "hora_fin": "17:00"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -33,14 +67,53 @@ class HorarioController extends Controller
         return response()->json($horario);
     }
 
-    // Listar horario por ID
+    /**
+     * Obtiene un horario específico por su ID.
+     *
+     * @group Horario
+     * @urlParam id string required ID del horario. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "medico_id": 1,
+     *   "dia_semana": "Lunes",
+     *   "hora_inicio": "08:00",
+     *   "hora_fin": "17:00"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Horario no encontrado"
+     * }
+     */
     public function show(string $id)
     {
         $horario = Horario::findOrFail($id);
         return response()->json($horario);
     }
 
-    // Actualizar horario
+    /**
+     * Actualiza un horario existente.
+     *
+     * @group Horario
+     * @urlParam id string required ID del horario. Example: 1
+     * @bodyParam medico_id integer opcional ID del médico. Example: 1
+     * @bodyParam dia_semana string opcional Día de la semana. Example: Lunes
+     * @bodyParam hora_inicio string opcional Hora de inicio en formato HH:mm. Example: 08:00
+     * @bodyParam hora_fin string opcional Hora de fin en formato HH:mm. Example: 17:00
+     *
+     * @response 200 scenario="Success" {
+     *   "id": 1,
+     *   "medico_id": 1,
+     *   "dia_semana": "Lunes",
+     *   "hora_inicio": "08:00",
+     *   "hora_fin": "17:00"
+     * }
+     * @response 400 scenario="Validation error" {
+     *   "message": "Los datos proporcionados no son válidos"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Horario no encontrado"
+     * }
+     */
     public function update(Request $request, string $id)
     {
         $horario = Horario::findOrFail($id);
@@ -60,7 +133,19 @@ class HorarioController extends Controller
         return response()->json($horario);
     }
 
-    // Eliminar horario
+    /**
+     * Elimina un horario existente.
+     *
+     * @group Horario
+     * @urlParam id string required ID del horario. Example: 1
+     *
+     * @response 200 scenario="Success" {
+     *   "message": "Horario eliminado"
+     * }
+     * @response 404 scenario="Not found" {
+     *   "message": "Horario no encontrado"
+     * }
+     */
     public function destroy(string $id)
     {
         $horario = Horario::findOrFail($id);

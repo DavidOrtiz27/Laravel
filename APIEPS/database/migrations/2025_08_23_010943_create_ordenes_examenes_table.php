@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ordenes_examenes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('consulta_medica_id')->constrained('consultas_medicas');
-            $table->foreignId('examen_medico_id')->constrained('examenes_Medico');
+            $table->foreignId('examen_medico_id')->constrained('examenes_medicos');
             $table->foreignId('laboratorio_id')->constrained('laboratorios');
             $table->date('fecha_orden');
             $table->enum('estado',["pendiente","realizado","entregado"]);
