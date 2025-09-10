@@ -28,9 +28,16 @@ export default function Register() {
       {/* Formulario */}
       <View style={styles.form}>
         {TextInputComponent("Nombre Completo", "Ingrese su nombre completo")}
-        {TextInputComponent("Correo Electrónico", "Ingrese su correo electrónico")}
-        {TextInputComponent("Contraseña", "Ingrese su contraseña")}
-        {TextInputComponent("Confirmar Contraseña", "Confirme su contraseña")}
+        {TextInputComponent(
+          "Correo Electrónico",
+          "Ingrese su correo electrónico",
+          "email-address"
+        )}
+        {TextInputComponent("Contraseña", "Ingrese su contraseña",)}
+        {TextInputComponent(
+          "Confirmar Contraseña",
+          "Confirme su contraseña",
+        )}
       </View>
 
       {/* Botón */}
@@ -59,11 +66,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 30,
-    paddingVertical: 40,
   },
   header: {
     alignItems: "center",
-    marginBottom: 20,
+    marginTop: -70,
   },
   logo: {
     width: 180,

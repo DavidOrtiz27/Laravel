@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Alert,
   ScrollView,
+  View,
 } from "react-native";
 import TextInputComponent from "../../components/inputComponent";
 import { useNavigation } from "@react-navigation/native";
@@ -25,8 +26,17 @@ export default function Login() {
       {/* Subtítulo */}
       <Text style={styles.subtitle}>Iniciar Sesión</Text>
 
-      {TextInputComponent("Documento", "Ingrese su documento")}
-      {TextInputComponent("Contraseña", "Ingrese su contraseña")}
+    <View style={styles.form}>
+      {TextInputComponent(
+        "Email",
+        "Ingrese su email",
+        "email-address"
+      )}
+      {TextInputComponent(
+        "Contraseña",
+        "Ingrese su contraseña"
+      )}
+      </View>
 
       <Text style={styles.textLink}>Recuperar Contraseña</Text>
 
@@ -53,18 +63,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#DDE6ED",
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "100%",
-    paddingHorizontal: 54,
-    paddingVertical: 32,
+    paddingHorizontal: 30,
+  },
+  header: {
+    alignItems: "center",
+    marginTop: -70,
   },
   logo: {
-    width: 220,
-    height: 220,
+    width: 180,
+    height: 180,
     marginBottom: 10,
     resizeMode: "contain",
   },
   title: {
-    fontSize: 34, // más grande
+    fontSize: 34, 
     fontWeight: "700",
     marginBottom: 12,
     textAlign: "center",
@@ -72,15 +84,21 @@ const styles = StyleSheet.create({
     top: -40,
   },
   subtitle: {
-    fontSize: 22, // un poco más pequeño
+    fontSize: 22,
     fontWeight: "500",
     marginBottom: 28,
     textAlign: "center",
     color: "#333",
   },
+  form: {
+    top: -20,
+    width: "100%",
+    maxWidth: 350,
+    marginBottom: 20,
+  },
   textLink: {
     color: "#007BFF",
-    fontSize: 16, // más pequeño
+    fontSize: 16,
     marginTop: 12,
     textAlign: "right",
     alignSelf: "stretch",
@@ -88,7 +106,7 @@ const styles = StyleSheet.create({
   },
   textCreate: {
     color: "#007BFF",
-    fontSize: 16, // mismo tamaño que link
+    fontSize: 16,
     marginTop: 60,
     textAlign: "center",
     padding: 20,
@@ -105,7 +123,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#fff",
-    fontSize: 18, // se mantiene
+    fontSize: 18,
     fontWeight: "bold",
   },
 });

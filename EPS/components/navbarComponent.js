@@ -12,7 +12,7 @@ const NavbarComponent = ({title}) => {
         <Icon name="arrow-left" size={24} color="#fff" />
       </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
-      <View style={{width: 24}} /> {/* Placeholder for alignment */}
+      <View style={{width: 24}} />
     </View>
   );
 };
